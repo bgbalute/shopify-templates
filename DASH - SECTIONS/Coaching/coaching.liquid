@@ -1,0 +1,126 @@
+{% render 'padding' %}
+
+{{ 'coaching.css' | asset_url | stylesheet_tag }}
+
+
+<div class="coaching page-width section-{{ section.id }}-padding">
+  <div class="title-wrapper-with-link title-wrapper--no-top-margin">
+    <h2 class="title">{{ section.settings.coaching_title }}</h2>
+  </div>
+  
+  <div class="coaching-section">
+  	<div class="coaching-section_1 coaching-container">
+      <a href="{{ section.settings.coaching_1_link }}">
+      	<img class="coaching_img" src="{{ section.settings.coaching_1_img | img_url:'710x' }}" />
+      </a>
+      <a class="button vm-btn" href="{{ section.settings.coaching_1_link }}">View More</a>
+    </div>
+  	<div class="coaching-section_2 coaching-container">
+      <a href="{{ section.settings.coaching_2_link }}">
+      	<img class="coaching_img" src="{{ section.settings.coaching_2_img | img_url:'710x' }}" />
+      </a>
+      <a class="button vm-btn" href="{{ section.settings.coaching_2_link }}">View More</a>
+    </div>
+  	<div class="coaching-section_3 coaching-container">
+      <a href="{{ section.settings.coaching_3_link }}">
+      	<img class="coaching_img" src="{{ section.settings.coaching_3_img | img_url:'710x' }}" />
+      </a>
+      <a class="button vm-btn" href="{{ section.settings.coaching_3_link }}">View More</a>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "CS- Coaching",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Coaching"
+    },
+    {
+      "type": "text",
+      "id": "coaching_title",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Coaching 1"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "coaching_1_img"
+    },
+    {
+      "type": "url",
+      "id": "coaching_1_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Coaching 2"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "coaching_2_img"
+    },
+    {
+      "type": "url",
+      "id": "coaching_2_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Coaching 3"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "coaching_3_img"
+    },
+    {
+      "type": "url",
+      "id": "coaching_3_link",
+      "label": "Link"
+    },
+    {
+      "type": "header",
+      "content": "Section Margin"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coaching"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

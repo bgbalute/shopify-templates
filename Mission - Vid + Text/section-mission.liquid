@@ -1,0 +1,117 @@
+{{ 'section-mission.css' | asset_url | stylesheet_tag }}
+
+{% render 'padding' %}
+
+<div class="mission page-width section-{{ section.id }}-padding">
+    <div class="mission-section {% if section.settings.mission_video_first %}{% else %}column-r-m{% endif %}">
+
+        {%- if section.settings.mission_video_first -%}
+
+        <div class="mission-video">
+            <video controls="" preload="none" poster="{{ section.settings.mission_coverphoto | img_url: 'master'}}" class="mission__video">
+                <source src="{{ section.settings.mission_videourl }}" type="video/mp4" />
+              Your browser does not support our video.
+              </video>
+        </div>
+        <div class="mission-content">
+            <h1 class="mission__heading h1">{{ section.settings.mission_heading }}</h1>
+            <p class="mission__subheading">{{ section.settings.mission_subheading }}</p>
+            <div class="mission__button"><a href="{{ section.settings.mission_btn_url }}" class="mission__button button">{{ section.settings.mission_btn_text }}</a></div>
+        </div>
+
+        {%- else -%}
+        <div class="mission-content">
+            <h1 class="mission__heading h1">{{ section.settings.mission_heading }}</h1>
+            <p class="mission__subheading">{{ section.settings.mission_subheading }}</p>
+            <div class="mission__button"><a href="{{ section.settings.mission_btn_url }}" class="button">{{ section.settings.mission_btn_text }}</a></div>
+        </div>
+        <div class="mission-video">
+            <video controls="" preload="none" poster="{{ section.settings.mission_coverphoto | img_url: 'master'}}" class="mission__video">
+                <source src="{{ section.settings.mission_videourl }}" type="video/mp4" />
+              Your browser does not support our video.
+              </video>
+        </div>
+        
+        {%- endif -%}
+    </div>
+</div>
+
+{% schema %}
+{
+   "name": "CS - Mission",
+  "tag": "section",
+  "settings": [
+     {
+         "type": "header",
+         "content": "Heading"
+     },
+    {
+        "type": "text",
+        "id": "mission_heading",
+        "label": "Heading",
+        "default": "OUR MISSION"
+    },
+   {
+       "type": "richtext",
+       "id": "mission_subheading",
+       "label": "Sub Heading"
+   },
+  {
+      "type": "image_picker",
+      "id": "mission_coverphoto",
+      "label": "label"
+  },
+ {
+     "type": "url",
+     "id": "mission_videourl",
+     "label": "Video URL"
+ },
+  {
+      "type": "text",
+      "id": "mission_btn_text",
+      "label": "Button Text",
+      "default": "Learn More"
+  },
+ {
+     "type": "url",
+     "id": "mission_btn_url",
+     "label": "Link"
+ },
+{
+    "type": "checkbox",
+    "id": "mission_video_first",
+    "label": "Video First",
+    "default": true
+},
+ {
+     "type": "header",
+     "content": "Section Padding"
+ },
+ {
+     "type": "range",
+     "id": "padding_top",
+     "min": 0,
+     "max": 100,
+     "step": 4,
+     "unit": "px",
+     "label": "t:sections.all.padding.padding_top",
+     "default": 36
+ },
+ {
+     "type": "range",
+     "id": "padding_bottom",
+     "min": 0,
+     "max": 100,
+     "step": 4,
+     "unit": "px",
+     "label": "t:sections.all.padding.padding_bottom",
+     "default": 36
+ }
+  ],
+ "presets": [
+     {
+         "name":"Mission"
+     }
+ ]
+}
+{% endschema %}

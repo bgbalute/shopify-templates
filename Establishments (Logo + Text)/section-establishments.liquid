@@ -1,0 +1,90 @@
+{{ 'section-establishments.css' | asset_url | stylesheet_tag }}
+{% render 'padding' %}
+
+<div class="establishments page-width section-{{ section.id }}-padding">
+  <div class="title-wrapper-with-link title-wrapper--no-top-margin {% if section.settings.establishments_alignment %}ft-center{% endif %}">
+    <h2 class="establishments__title" >{{ section.settings.establishments_title }}</h2>
+  </div>
+
+  <div class="establishments-section">
+	{% for block in section.blocks %}
+    	{%- if block.settings.establishments_icon != blank -%}
+          <div>
+              <img class="logo-img" src="{{ block.settings.establishments_icon | img_url: '150x' }}" alt="" />
+              <p class="establishments__title">{{ block.settings.establishments_title }}</p>
+        </div>
+     	{%- endif -%}
+  	{% endfor %}
+  </div>
+  
+  <p class="establishments__footer">And much more!</p>
+</div>
+
+{% schema %}
+{
+  "name": "CS - Establishments",
+  "settings": [
+    {
+      "type": "text",
+      "id": "establishments_title",
+      "default": "Establishments",
+      "label": "Heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "establishments_alignment",
+      "label": "Center Align",
+      "default": false
+    },
+    {
+        "type": "header",
+        "content": "Section Padding"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "establishments_icon",
+          "label": "Image",
+          "info": "Upload Icon"
+        },
+       {
+           "type": "text",
+           "id": "establishments_title",
+           "label": "Title",
+           "default": "(Insert Establishment Name Here)"
+       }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Establishments"
+    }
+  ]
+}
+{% endschema %}

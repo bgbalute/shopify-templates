@@ -1,0 +1,25 @@
+.desktop-banner-img, .mobile-banner-img{
+    width:100%;
+}
+
+.hero-banner > a{
+    display:flex;
+}
+@media only screen and (max-width: 549px) { 
+  .desktop-banner-img, .mobile-banner-img{
+    width: 100%;
+    height: auto !important;
+  } 
+  img.desktop-banner-img{
+      display:none;
+  }
+}
+
+@media only screen and (min-width: 550px) { 
+  img.desktop-banner-img{
+      display:block;
+  }
+  img.mobile-banner-img{
+      display:none;
+  }
+}

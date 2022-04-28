@@ -1,0 +1,48 @@
+{{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="hero-banner">
+    {% if section.settings.hero_button_link %}
+    <a id="banner-link" href="{{ section.settings.hero_button_link }}">
+    <img class="desktop-banner-img " src="{{section.settings.hero-image-main | img_url:'master' }}" />
+    <img class="mobile-banner-img" src="{{section.settings.hero-image-mobile | img_url:'master' }}" />
+    </a>
+    {% else %}
+    <div>
+    <img class="desktop-banner-img " src="{{section.settings.hero-image-main | img_url:'master' }}" />
+    <img class="mobile-banner-img" src="{{section.settings.hero-image-mobile | img_url:'master' }}" />
+    </div>
+    {% endif %}
+</div>
+
+
+{% schema %}
+{
+  "name": "CS - Hero Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Banner"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "hero-image-main"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "hero-image-mobile"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

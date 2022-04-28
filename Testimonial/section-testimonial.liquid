@@ -1,0 +1,120 @@
+{% render 'padding' %}
+
+{{ 'flickity.min.css' | asset_url | stylesheet_tag }}
+{{ 'testimonial.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'flickity.pkgd.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'slider-config.js' | asset_url }}" defer="defer"></script>
+
+{%- style -%}
+.testimonial{
+  background-color: {{ section.settings.testimonial_bgcolor }};
+}
+{%- endstyle -%}
+
+<div class="testimonial section-{{ section.id }}-padding">
+    <div class="testimonial-section page-width">
+        <div class="title-wrapper-with-link title-jt-center title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+            <h2 class="h1 testimonial-title">{{ section.settings.testimonial_title }}</h2>
+        </div>
+    
+
+    <div class="main-carousel">      
+      {% for block in section.blocks %}
+        {%- if block.settings.testimonial_cximage != blank -%}
+        	<div  class="carousel-cell">
+                <div class="carousel-content">
+                    <p class="testimonial__content">{{ block.settings.testimonial_content }}</p>
+                    <img class="testimonial_image" src="{{ block.settings.testimonial_cximage | img_url: '80x' }}" alt="" />
+                    <p class="testimonial__cx">{{ block.settings.testimonial_cx }}</p>
+                </div>
+            </div>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "CS - Testimonial",
+    "settings": [
+                {
+                "type":"header",
+                "content":"Testimonial"
+                },
+               {
+                 "type": "color",
+                 "id": "testimonial_bgcolor",
+                 "label": "Background Color",
+                 "default": "#fff"
+               },
+                {
+                    "type": "text",
+                    "id": "testimonial_title",
+                    "label": "Title",
+                    "default": "WHAT MY CLIENT SAYS"
+                },
+                {
+                   "type": "header",
+                   "content": "Section Padding"
+                },
+                {
+                    "type": "range",
+                    "id": "padding_top",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "t:sections.all.padding.padding_top",
+                    "default": 36
+                },
+                {
+                    "type": "range",
+                    "id": "padding_bottom",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "t:sections.all.padding.padding_bottom",
+                    "default": 36
+                }
+		],
+    "blocks": [
+                { 
+                "type":"header",
+                "name":"Upload Testimonials",
+				"settings": [
+                    {
+                        "type":"image_picker",
+                        "label":"Upload Customer Image",
+                        "id": "testimonial_cximage"
+                    },
+                    {
+                        "type": "textarea",
+                        "id": "testimonial_content",
+                        "label": "Testimonial Content",
+                        "default": "I love MJ! She helped me a lot."
+                    },
+                    {
+                        "type": "text",
+                        "id": "testimonial_cx",
+                        "label": "Customer Name",
+                        "default": "Hannah C."
+                    }
+                  ]
+				}
+               ],
+	"presets": [
+				{
+					"name": "Testimonial"
+				}
+			   ]
+  }
+{% endschema %}
+
+

@@ -1,0 +1,125 @@
+{% render 'padding' %}
+{{ "service-count.css" | asset_url | stylesheet_tag }}
+
+<div class="service-count section-{{ section.id }}-padding">
+    <div class="service-count-section">
+        <ul class="service-count__item sc__item1">
+            <li class="service-count__number">{{ section.settings.service-count_number1 }}</li>
+            <li>{{ section.settings.service-count_service1 }}</li>
+        </ul>
+        <ul class="service-count__item sc__item2">
+            <li class="service-count__number">{{ section.settings.service-count_number2 }}</li>
+            <li>{{ section.settings.service-count_service2 }}</li>
+        </ul>
+        <ul class="service-count__item sc__item3">
+            <li class="service-count__number">{{ section.settings.service-count_number3 }}</li>
+            <li>{{ section.settings.service-count_service3 }}</li>
+        </ul>
+        <ul class="service-count__item sc__item4">
+            <li class="service-count__number">{{ section.settings.service-count_number4 }}</li>
+            <li>{{ section.settings.service-count_service4 }}</li>
+        </ul>
+    </div>
+</div>
+
+{% schema %}
+{
+   "name": "CS - Service Count",
+  "tag": "section",
+  "settings": [
+        {
+            "type": "header",
+            "content": "Services 1"
+        },
+        {
+            "type": "text",
+            "id": "service-count_service1",
+            "label": "Service Title",
+            "default": "Sample Service 1"
+        },
+        {
+            "type": "text",
+            "id": "service-count_number1",
+            "label": "Count",
+            "default": "80+"
+        },
+        {
+            "type": "header",
+            "content": "Services 2"
+        },
+        {
+            "type": "text",
+            "id": "service-count_service2",
+            "label": "Service Title",
+            "default": "Sample Service 2"
+        },
+        {
+            "type": "text",
+            "id": "service-count_number2",
+            "label": "Count",
+            "default": "90+"
+        },
+        {
+            "type": "header",
+            "content": "Services 3"
+        },
+        {
+            "type": "text",
+            "id": "service-count_service3",
+            "label": "Service Title",
+            "default": "Sample Service 3"
+        },
+        {
+            "type": "text",
+            "id": "service-count_number3",
+            "label": "Count",
+            "default": "100+"
+        },
+        {
+            "type": "header",
+            "content": "Services 4"
+        },
+        {
+            "type": "text",
+            "id": "service-count_service4",
+            "label": "Service Title",
+            "default": "Sample Service 4"
+        },
+        {
+            "type": "text",
+            "id": "service-count_number4",
+            "label": "Count",
+            "default": "200+"
+        },
+        {
+            "type": "header",
+            "content": "Section Padding"
+        },
+        {
+            "type": "range",
+            "id": "padding_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "t:sections.all.padding.padding_bottom",
+            "default": 36
+        }
+  ],
+ "presets": [
+     {
+         "name":"Service Count"
+     }
+ ]
+}
+{% endschema %}

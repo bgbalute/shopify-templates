@@ -1,0 +1,83 @@
+{% render 'margin' %}
+
+{{ "banner-two.css" | asset_url | stylesheet_tag }}
+
+<div class="banner-two section-{{ section.id }}-margin">
+    <div class="banner-two-section page-width">
+       
+        <div class="banner-two-content">
+            <img class="banner-two__titleimg" src="{{ section.settings.banner_two_title_img | img_url: '280x' }}" alt="">
+            <span class="banner-two__content">{{ section.settings.banner_two_content }}</span>
+            <a class="button banner-two__cta" href="#">{{ section.settings.banner_two_cta }}</a>
+
+            <!-- Background Stars -->
+            <img class="banner-two__star_bg1 banner-two__bgimage" src="https://cdn.shopify.com/s/files/1/0555/6610/6702/files/Star_Bg.png?v=1648449274" alt="" >
+            <img class="banner-two__star_bg2 banner-two__bgimage" src="https://cdn.shopify.com/s/files/1/0555/6610/6702/files/Star_Bg.png?v=1648449274" alt="" >
+        </div>
+
+        <div class="banner-two-image">
+            <img class="banner-two-section__image" src="{{ section.settings.banner_two_main_img | img_url: '500x' }}" alt="">
+        </div>
+    </div>
+    
+</div>
+
+{% schema %}
+{
+   "name": "CS - Banner Two",
+   "tag": "section",
+   "class": "section",
+   "settings": [
+       {
+           "type": "image_picker",
+           "id": "banner_two_main_img",
+           "label": "Main Image"
+       },
+       {
+        "type": "image_picker",
+        "id": "banner_two_title_img",
+        "label": "Title Image"
+        },
+        {
+            "type": "richtext",
+            "id": "banner_two_content",
+            "label": "Content"
+        },
+        {
+                "type": "text",
+                "id": "banner_two_cta",
+                "label": "Banner CTA",
+                "default": "Join Free Course"
+        },
+        {
+           "type": "header",
+           "content": "Section Margin"
+        },
+        {
+            "type": "range",
+            "id": "margin_top",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Margin Top",
+            "default": 36
+        },
+        {
+            "type": "range",
+            "id": "margin_bottom",
+            "min": 0,
+            "max": 100,
+            "step": 4,
+            "unit": "px",
+            "label": "Margin Bottom",
+            "default": 36
+        }
+   ],
+  "presets": [
+      {
+          "name":"Banner Two"
+      }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,41 @@
+li{
+    list-style-type: none;
+}
+.trust-badge{
+    margin: 0 auto;
+}
+
+.trust-badge-section{
+    display: grid;
+}
+.trust-badge__item{
+    padding:0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.trust-badge__image{
+    width: 100%;
+}
+
+.trust-badge__title{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 799px){
+    .trust-badge__item{
+        margin: 0;
+        padding:10px;
+    }
+}
+
+@media only screen and (min-width: 800px){
+    .trust-badge-section{
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+        grid-column-gap: 1em;
+    }
+}

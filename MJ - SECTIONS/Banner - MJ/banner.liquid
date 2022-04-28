@@ -1,0 +1,67 @@
+
+{{ "banner.css" | asset_url | stylesheet_tag }}
+
+<div class="banner section-{{ section.id }}-padding">
+    <div class="banner-section page-width">
+        <div class="banner-image">
+            <img class="banner-section__image" src="{{ section.settings.banner_main_img | img_url: 'master' }}" alt="">
+            <!-- <img class="line1-img" src="{{ section.settings.line1_img | img_url: 'master' }}" alt="" class="line1"> -->
+        </div>
+        <div class="banner-content">
+            <p class="banner_line1_txt">{{ section.settings.banner_line1 }}</p>
+            <img class="banner_line2_img" src="{{ section.settings.banner_img_line2 | img_url: '280x' }}" alt="">
+            <p class="banner_line3_txt">{{ section.settings.banner_line3 }}</p>
+            <a class="button banner__cta" href="#">{{ section.settings.banner_cta }}</a>
+            <!-- Background Graphics -->
+            
+            <img class="banner__star_bg1 banner__bgimage" src="https://cdn.shopify.com/s/files/1/0555/6610/6702/files/Star_Bg.png?v=1648449274" alt="" >
+            <img class="banner__star_bg2 banner__bgimage" src="https://cdn.shopify.com/s/files/1/0555/6610/6702/files/Star_Bg.png?v=1648449274" alt="" >
+        </div>
+        <img class="banner_bg_img1" src="https://cdn.shopify.com/s/files/1/0555/6610/6702/files/Line2.png?v=1648389256" alt="" class="line1">
+    </div>
+    
+</div>
+
+{% schema %}
+{
+   "name": "CS - Banner",
+   "tag": "section",
+   "class": "section",
+   "settings": [
+       {
+           "type": "image_picker",
+           "id": "banner_main_img",
+           "label": "Main Image"
+       },
+       {
+            "type": "text",
+            "id": "banner_line1",
+            "label": "Banner Line 1",
+            "default": "Take your Business to",
+            "placeholder": "Take your Business to"
+       },
+      {
+            "type": "image_picker",
+            "id": "banner_img_line2",
+            "label": "Line 2 Image"
+      },    
+      {
+            "type": "text",
+            "id": "banner_line3",
+            "label": "Banner Line 3",
+            "default": "I help entrepreneurs grow or start their business by providing them with tools & resources to be financially savvy & productive"
+      },
+      {
+            "type": "text",
+            "id": "banner_cta",
+            "label": "Banner CTA",
+            "default": "Join Free Course"
+       }
+   ],
+  "presets": [
+      {
+          "name":"Banner"
+      }
+  ]
+}
+{% endschema %}

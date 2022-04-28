@@ -1,0 +1,59 @@
+{{ 'small-banner.css' | asset_url | stylesheet_tag }}
+
+
+{% render 'padding' %}
+
+<div class="small-banner">
+    <div class="small-banner-section">
+        <h1 class="small-banner__heading h1">{{ section.settings.small-banner_heading }}</h1>
+        <p class="small-banner__subheading">{{ section.settings.small-banner_subheading }}</p>
+        <a class="small-banner__button button" href="{{ section.settings.small-banner_btn_link }}">{{ section.settings.small-banner_btn_text }}</a>
+    </div>
+    
+    <img src="{{ section.settings.small-banner_image | img_url: 'master' }}" class="small-banner__bg-image" alt="">
+</div>
+
+
+{% schema %}
+{
+   "name": "CS - Small Banner",
+  "tag": "section",
+  "settings": [
+    {
+        "type": "header",
+        "content": "Heading"
+    },
+   {
+       "type": "text",
+       "id": "small-banner_heading",
+       "label": "Heading"
+   },
+  {
+      "type": "text",
+      "id": "small-banner_subheading",
+      "label": "Sub Heading"
+  },
+ {
+     "type": "text",
+     "id": "small-banner_btn_text",
+     "label": "Button Text",
+     "default": "Learn More"
+ },
+{
+    "type": "url",
+    "id": "small-banner_btn_link",
+    "label": "Button Link"
+},
+{
+    "type": "image_picker",
+    "id": "small-banner_image",
+    "label": "Upload Image"
+}
+  ],
+ "presets": [
+     {
+         "name":"Small Banner"
+     }
+ ]
+}
+{% endschema %}

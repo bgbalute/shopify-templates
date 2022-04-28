@@ -1,0 +1,66 @@
+.small-banner{
+    background-color: #BED9F6;
+    position: relative;
+    background-image: url('https://cdn.shopify.com/s/files/1/0638/4972/6177/files/Jas_Store_1_-_BANNER_PC_6.png?v=1650493614');
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.small-banner-section{
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.small-banner__heading{
+    margin: 0;
+}
+.small-banner__button{
+    margin-top: 30px;
+}
+
+
+.small-banner__bg-image{
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    z-index: 5;
+}
+
+@media only screen and (max-width: 549px) { 
+    .small-banner__heading{
+        font-size: 2.5em;
+    }
+    .small-banner__bg-image{
+        display: none;
+    }
+  }
+  @media only screen and (min-width: 550px) { 
+    .small-banner__heading{
+        font-size: 3.5em;
+    }
+    .small-banner__bg-image{
+        right: 0px;
+        max-width: 250px;
+    }
+  }
+@media only screen and (min-width: 750px) { 
+    .small-banner__heading{
+        font-size: 4.5em;
+    }
+    .small-banner__bg-image{
+        right: 0px;
+        max-width: 400px;
+    }
+  }
+
+  @media only screen and (min-width: 1500px) { 
+    .small-banner__bg-image{
+        right: 100px;
+    }
+  }
+
+  
